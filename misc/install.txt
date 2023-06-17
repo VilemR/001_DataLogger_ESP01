@@ -1,0 +1,22 @@
+https://community.platformio.org/t/how-to-put-platformio-on-the-gitpod-cloud-for-free/11020
+python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/develop/scripts/get-platformio.py)"
+
+cd /workspace/001_DataLogger_ESP01
+~/.platformio/penv/bin/pio project init
+
+
+Add to platformio.ini file:
+
+[env:esp01]
+platform = espressif8266
+board = esp01
+framework = arduino
+lib_deps = 
+	claws/BH1750@^1.3.0
+	ayushsharma82/ElegantOTA@^2.2.9
+	makuna/RTC@^2.3.7     ;https://registry.platformio.org/libraries/makuna/RTC/installation
+
+
+
+~/.platformio/penv/bin/pio run
+
